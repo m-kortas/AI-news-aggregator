@@ -3,7 +3,6 @@ Simplified Streamlit UI for News Aggregation & Chatbot
 Clean, focused interface for core features only
 """
 
-# Fix SQLite version issue for ChromaDB on Streamlit Cloud
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
@@ -15,7 +14,6 @@ import plotly.express as px
 from datetime import datetime
 import os
 
-# Import our news aggregator
 from simple_news_aggregator import NewsAggregator, run_news_pipeline
 
 # Page configuration
@@ -424,21 +422,10 @@ def main():
     # Attribution
     st.markdown('<div class="attribution">Built by <a href="https://www.linkedin.com/in/mkortas/" target="_blank">Magda Kortas</a></div>', unsafe_allow_html=True)
     
-    # Get API key from Streamlit secrets
     try:
         api_key = st.secrets["GEMINI_API_KEY"]
     except KeyError:
-        st.error("⚠️ **Configuration Error**: Gemini API key not found in Streamlit secrets.")
-        st.markdown("""
-        **To fix this:**
-        1. Go to your Streamlit Cloud app settings
-        2. Navigate to **Settings → Secrets**
-        3. Add the following:
-        ```
-        GEMINI_API_KEY = "your-api-key-here"
-        ```
-        4. Save and redeploy
-        """)
+        st.error(" **Configuration Error**: Gemini API key not found in Streamlit secrets.")
         st.stop()
     
     # Sidebar for controls
@@ -480,7 +467,6 @@ def main():
 
 def run_pipeline():
     """Run the news aggregation pipeline"""
-    # Get API key from secrets
     api_key = st.secrets["GEMINI_API_KEY"]
     
     with st.spinner("Running news aggregation pipeline..."):
@@ -502,11 +488,11 @@ def run_pipeline():
             if st.session_state.aggregator.has_news_data():
                 try:
                     doc_count = st.session_state.aggregator.news_collection.count()
-                    st.info(f"✅ RAG system loaded with {doc_count} documents")
+                    st.info(f" RAG system loaded with {doc_count} documents")
                 except:
-                    st.info("✅ RAG system loaded")
+                    st.info(" RAG system loaded")
             else:
-                st.warning("⚠️ RAG system not loaded properly")
+                st.warning(" RAG system not loaded properly")
             st.rerun()
             
         except Exception as e:
