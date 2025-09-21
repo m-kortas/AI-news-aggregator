@@ -1,0 +1,33 @@
+# Core Python packages
+python-dateutil>=2.8.2
+
+# Web scraping and news extraction
+feedparser>=6.0.10
+newspaper3k>=0.2.8
+beautifulsoup4>=4.12.2
+requests>=2.32.3
+lxml>=4.9.3
+lxml-html-clean>=0.1.0
+
+# Data Manipulation - Python 3.13+ compatible versions
+numpy>=1.26.0,<2.1.0
+pandas>=2.1.0,<2.3.0
+scikit-learn>=1.4.0,<1.7.0
+scipy>=1.11.0,<1.14.0
+
+# AI and Machine Learning
+google-generativeai>=0.7.0,<1.0.0
+google-ai-generativelanguage>=0.6.0
+google-api-core>=2.20.0,<3.0.0
+google-api-python-client>=2.130.0,<3.0.0
+google-auth>=2.35.0,<3.0.0
+google-auth-httplib2>=0.2.0,<1.0.0
+
+# Vector Database
+chromadb>=0.4.0,<1.0.0
+sentence-transformers>=2.2.0,<3.0.0
+pysqlite3-binary>=0.5.0
+
+# UI and visualization - Latest compatible versions
+streamlit>=1.28.1
+plotly>=5.17.0
