@@ -1062,13 +1062,11 @@ async def run_news_pipeline(gemini_api_key: str) -> Dict[str, List[NewsArticle]]
     
     return highlights
 
-# Example usage
 if __name__ == "__main__":
-    # Set your Gemini API key
-    API_KEY = os.getenv('GEMINI_API_KEY', 'your-api-key-here')
+    API_KEY = os.getenv('GEMINI_API_KEY', 'api-key-here')
     
-    if API_KEY == 'your-api-key-here':
-        print("Please set your GEMINI_API_KEY environment variable")
+    if API_KEY == 'api-key-here':
+        print("Missing GEMINI_API_KEY environment variable")
         exit(1)
     
     # Run the pipeline
