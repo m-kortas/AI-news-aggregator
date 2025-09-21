@@ -1,6 +1,5 @@
 """
 Simplified Streamlit UI for News Aggregation & Chatbot
-Clean, focused interface for core features only
 """
 
 __import__('pysqlite3')
